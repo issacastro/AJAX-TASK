@@ -13,3 +13,6 @@ Esta es una aplicacion desarrollada en HTML, JavaScript y PHP para registrar tar
 * El Usuario podra borrar la tarea con el boton de delete que tiene a la derecha de su tarea.
 * El usuario tendra una seccion de busqueda donde podra encontrar la tarea que coincida con la busqueda, para saber si ya la ha realizado.
 ---
+## ScreenShot 
+ScreenShot disponibles en:
+https://imgur.com/gallery/JG5c4Bb
