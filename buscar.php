@@ -2,9 +2,10 @@
 include('db.php');
 
  $buscar= $_POST['buscar'];
+ $user= $_POST['user'];
 
  if(!empty($buscar)){
-     $query ="SELECT *FROM task WHERE title LIKE '$buscar%'" ;
+     $query ="SELECT *FROM task WHERE title LIKE '$buscar%' AND user = '$user'" ;
      $response = mysqli_query($conexion,$query);
      if(!$response){
          die('Error de Consulta'. mysqli_error('$conexion'));

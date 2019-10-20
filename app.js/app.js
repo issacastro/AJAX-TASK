@@ -1,6 +1,6 @@
 $(document).ready(function(){
     console.log('Query anda chido');
-    
+     var user = localStorage.getItem("Sesion");
     obtenertabla();
 //Buscar Elementos en la Base de datos
     $('#resultados').hide();
@@ -11,7 +11,7 @@ $(document).ready(function(){
        $.ajax({
            url :'buscar.php',
            type: 'POST',
-           data:{buscar:buscar},
+           data:{buscar:buscar,'user':user},
            success: function(r) {
             let consulta = JSON.parse(r);
             let template='';
@@ -38,7 +38,7 @@ $(document).ready(function(){
        $.ajax({
            url :'encontrar.php',
            type : 'POST',
-           data :{buscar:buscar},
+           data :{buscar:buscar,'user':user},
            success: function(r) {
            let consulta = JSON.parse(r);
            let template='';
@@ -65,7 +65,8 @@ $(document).ready(function(){
 $('#formulario').submit(function(e){
    const datos={
        'title':$('#Titulo').val(),
-       'description':$('#Nota').val()
+       'description':$('#Nota').val(),
+       'user': user
    };
    $.post('guardar.php',datos,function(r){
        console.log(r);
@@ -79,7 +80,8 @@ $('#formulario').submit(function(e){
 function obtenertabla(){
    $.ajax({
        url: 'mostrar.php',
-       type:'GET',
+       type:'post',
+       data:{user:user},
        success: function (response) {
           let tareas = JSON.parse(response);
           let template ='';

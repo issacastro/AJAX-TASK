@@ -1,7 +1,7 @@
 <?php
 include('db.php');
-
-$query= "SELECT * FROM task";
+$user =$_POST['user'];
+$query= "SELECT * FROM task WHERE user = '$user'";
 $result= mysqli_query($conexion,$query);
 if(!$result){
     die('Fallo en la consulta'). mysqli_error($conexion);

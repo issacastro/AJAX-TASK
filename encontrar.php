@@ -1,10 +1,10 @@
 <?php 
 include('db.php');
 $buscar=$_POST['buscar'];
-
+ $user= $_POST['user'];
 if(!empty($buscar)){
 
-    $query ="SELECT * FROM task WHERE title ='$buscar' OR id='$buscar'" ;
+    $query ="SELECT * FROM task WHERE user = '$user' AND (title ='$buscar' OR id='$buscar')" ;
     $request = mysqli_query($conexion,$query);
     if(!$request){
         die('Fallo en la Consulta');
